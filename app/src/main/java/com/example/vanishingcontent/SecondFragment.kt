@@ -1,11 +1,13 @@
 package com.example.vanishingcontent
 
+import android.graphics.Color
 import android.os.Bundle
 import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.fragment.findNavController
 import com.example.vanishingcontent.databinding.FragmentSecondBinding
 
@@ -39,6 +41,11 @@ class SecondFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+
+        activity?.window?.apply {
+            val windowInsetsControllerCompat = WindowInsetsControllerCompat(this, decorView)
+            windowInsetsControllerCompat.isAppearanceLightStatusBars = false
+        }
     }
 
     override fun onDestroyView() {
@@ -46,6 +53,11 @@ class SecondFragment : Fragment() {
 
         sharedElementReturnTransition =
             TransitionInflater.from(requireContext()).inflateTransition(R.transition.the_transition)
+
+        activity?.window?.apply {
+            val windowInsetsControllerCompat = WindowInsetsControllerCompat(this, decorView)
+            windowInsetsControllerCompat.isAppearanceLightStatusBars = true
+        }
         _binding = null
     }
 }
