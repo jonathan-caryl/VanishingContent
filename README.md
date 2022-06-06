@@ -13,4 +13,8 @@ If you use the Layout Inspector, the layout that's vanished has 0 for width/heig
 
 ![Layout Inspector screenshot](layout_inspector.png)
 
-You trigger the issue in the sample app by returning from the second screen to the first via the Back button, which sets `isAppearanceLightStatusBars = true`.
+You trigger the issue in the sample app by returning from the second screen to the first via the Back button, which sets `isAppearanceLightStatusBars = true`. Then pressing the NEXT button to return to the second screen makes the content vanish.
+
+Here's an animation of what happens:
+
+![Animation of the issue](vanishing_content.gif)
